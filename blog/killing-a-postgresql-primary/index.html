@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Killing a PostgreSQL primary on purpose · Sherry Kisilu</title>
+<meta name="description" content="I deployed a three-unit PostgreSQL cluster with Juju on Kubernetes, deleted the primary, and watched what the operator did. What happened, why, and what I couldn't measure.">
+<meta property="og:title" content="Killing a PostgreSQL primary on purpose">
+<meta property="og:description" content="What a database operator does when the primary dies, seen first-hand.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sherrykisilu.github.io/blog/killing-a-postgresql-primary/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f5c4d'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23f6f1e7'>SK</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../post.css">
+</head>
+<body>
+<nav><div class="wrap"><a class="mark" href="/">Sherry Kisilu</a><ul><li><a href="/blog/">Writing</a></li><li><a href="/#projects">Projects</a></li></ul></div></nav>
+
+<main class="wrap">
+<article>
+<header>
+  <p class="eyebrow">Databases · Kubernetes · 13 October 2026</p>
+  <h1>Killing a PostgreSQL primary on purpose</h1>
+  <p class="lede">I deployed a three-unit PostgreSQL cluster with Juju on Kubernetes, deleted the primary, and watched what the operator did. The data survived, which I expected. How it survived taught me more.</p>
+</header>
+
+<p>At work I've spent time keeping services alive by hand: updating machines, nursing containers back after they fall over, recovering what went down. So I've been curious about the other approach, where the knowledge of how to run a system lives in software instead of in someone's head. Database operators promise exactly that. I wanted to see one handle the worst ordinary day a database has: losing its primary.</p>
+
+<h2>The short version, for anyone new to this</h2>
+<p>Think of a busy kitchen. In a <em>stateless</em> system any chef can take any order: if one goes home, another steps in and nothing is lost. A database is <em>stateful</em>: each chef keeps a notebook of orders. If a chef leaves, you can't just hire any replacement. Someone has to come back to the same station, with the same notebook, and everyone has to agree on who is now in charge of new orders.</p>
+<p>Kubernetes is good at the first part: it brings a replacement back to the same station with the same notebook. Deciding who is in charge, and in what order to do things so no orders get lost, is the job of the <strong>operator</strong>.</p>
+
+<h2>The setup</h2>
+<ul>
+  <li>An Ubuntu 24.04 VM on Multipass, provisioned with a <code>cloud-init</code> file that installs MicroK8s, Juju and the rest.</li>
+  <li>A Juju controller bootstrapped onto MicroK8s.</li>
+  <li><code>juju deploy postgresql-k8s --channel 16/stable --trust -n 3</code>: Canonical's Charmed PostgreSQL, three units, one primary and two replicas.</li>
+  <li>Credentials issued through an integration rather than by hand: <code>juju integrate data-integrator postgresql-k8s</code>. The charm created a database and a user for me. I didn't write a line of SQL to get them.</li>
+</ul>
+<p>Before breaking anything, I wrote 100 rows through the primary. The test table records which server answered each write, so I could see where my writes landed before and after.</p>
+
+<h2>The experiment</h2>
+<pre><code>$ kubectl -n pg delete pod postgresql-k8s-0     # the current primary</code></pre>
+<p>Then I wrote another 100 rows and checked the cluster.</p>
+
+<div class="table"><table>
+  <thead><tr><th></th><th>Before</th><th>After</th></tr></thead>
+  <tbody>
+    <tr><td>Primary</td><td>unit 0</td><td>unit 2</td></tr>
+    <tr><td>Unit 0</td><td>primary, IP .81</td><td>replica, IP .91</td></tr>
+    <tr><td>Rows written before the failure</td><td>100</td><td>100, all intact</td></tr>
+    <tr><td>New writes</td><td>to unit 0</td><td>to unit 2, succeeded</td></tr>
+  </tbody>
+</table></div>
+
+<h2>What I learned</h2>
+
+<h3>1. The old primary came back as a replica, and that's the point</h3>
+<p>By the time unit 0's pod restarted, the cluster had already moved on: unit 2 had been promoted and was accepting writes. If unit 0 had come back insisting it was still the primary, there would have been two primaries with different data. That's <strong>split-brain</strong>, one of the worst things that can happen to a database. So it rejoined as a replica and caught up from the new primary. Keeping its identity didn't mean keeping its role.</p>
+
+<h3>2. Same name, same storage, new address</h3>
+<p>The recreated pod kept its name, <code>postgresql-k8s-0</code>, and its volumes, but got a new IP address. Each unit has four persistent volume claims: <code>data</code>, <code>archive</code> (the write-ahead log, used for replication and point-in-time recovery), <code>logs</code> and <code>temp</code>. Their ages showed they had outlived the pod. That's why nothing was lost.</p>
+
+<h3>3. Clients follow a label, not a machine</h3>
+<p>My writes went to a Service called <code>postgresql-k8s-primary</code>. Its selector is <code>role=primary</code>. When unit 2 was promoted, the label moved, and the Service followed it. My client never needed to know the failover happened. That's transparency in the distributed-systems sense: the complexity is still there, but the user doesn't have to carry it.</p>
+
+<h3>4. The operator runs beside the database</h3>
+<p>Each PostgreSQL pod runs two containers: <code>postgresql</code> and <code>charm</code>. The operator isn't a distant controller; it sits next to the thing it manages.</p>
+
+<h2>What I couldn't measure yet</h2>
+<p>I wanted a failover time, and I don't have an honest one. My first write after deleting the pod succeeded instantly, but it was answered by the old primary before its pod had finished shutting down, so it measured nothing. Juju's status display also refreshes on a timer, so "when Juju showed the new primary" was minutes after the promotion really happened. Measuring it properly means polling each unit's <code>pg_is_in_recovery()</code> directly. That's the next experiment.</p>
+
+<h2>What this would have cost by hand</h2>
+<p>Without an operator, someone would have had to notice the primary was dead, choose the most up-to-date replica, promote it, point every application at it, and later rebuild the failed node as a replica. Writes would fail for that whole window, and a rushed choice under pressure (promoting a replica that was behind) could lose data. In the lab, all of that happened while I was reading the output.</p>
+
+<h2>Next</h2>
+<ul>
+  <li>Measure failover time properly.</li>
+  <li>Back up to S3-compatible storage and, more importantly, restore. A backup you haven't restored is a hope, not a backup.</li>
+  <li>Repeat it on plain VMs with the machine charm.</li>
+</ul>
+<p>The scripts and setup are on GitHub: <a href="https://github.com/sherrykisilu/charmed-postgresql-lab">sherrykisilu/charmed-postgresql-lab</a>.</p>
+</article>
+</main>
+<footer><div class="wrap"><a href="/blog/">← All writing</a> · © 2026 Sherry Kisilu</div></footer>
+</body>
+</html>
