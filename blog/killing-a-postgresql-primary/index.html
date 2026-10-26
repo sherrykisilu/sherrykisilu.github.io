@@ -5,20 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Killing a PostgreSQL primary on purpose · Sherry Kisilu</title>
 <meta name="description" content="I deployed a three-unit PostgreSQL cluster with Juju on Kubernetes, deleted the primary, and watched what the operator did. What happened, why, and what I couldn't measure.">
+<meta name="theme-color" content="#081426">
+<link rel="canonical" href="https://sherrykisilu.github.io/blog/killing-a-postgresql-primary/">
 <meta property="og:title" content="Killing a PostgreSQL primary on purpose">
 <meta property="og:description" content="What a database operator does when the primary dies, seen first-hand.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sherrykisilu.github.io/blog/killing-a-postgresql-primary/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f5c4d'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23f6f1e7'>SK</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="article:published_time" content="2026-10-13">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Killing a PostgreSQL primary on purpose">
+<meta name="twitter:description" content="What a database operator does when the primary dies, seen first-hand.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23081426'/><path d='M14 45V19h8v10l9-10h10L30 31l12 14H32L22 33v12z' fill='%23c8ff4d'/></svg>">
 <link rel="stylesheet" href="../post.css">
 </head>
 <body>
-<nav><div class="wrap"><a class="mark" href="/">Sherry Kisilu</a><ul><li><a href="/blog/">Writing</a></li><li><a href="/#projects">Projects</a></li></ul></div></nav>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Primary navigation"><div class="wrap"><a class="mark" href="/">Sherry Kisilu</a><ul><li><a href="/blog/">Writing</a></li><li><a href="/#projects">Systems</a></li></ul></div></nav>
 
-<main class="wrap">
+<main id="main" class="wrap">
 <article>
 <header>
   <p class="eyebrow">Databases · Kubernetes · 13 October 2026</p>

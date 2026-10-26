@@ -1,294 +1,284 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sherry Kisilu</title>
-<meta name="description" content="Sherry Kisilu, software engineer in Nairobi working on data, cloud and AI. Windows Reliability Data Engineering at Microsoft.">
-<meta property="og:title" content="Sherry Kisilu">
-<meta property="og:description" content="Software engineer in Nairobi working on data, cloud and AI.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sherrykisilu.github.io/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f5c4d'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23f6f1e7'>SK</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f6f1e7;
-    --surface: #fffaf0;
-    --ink: #1d1b16;
-    --muted: #5e584c;
-    --line: #e2d9c6;
-    --accent: #0f5c4d;
-    --accent-soft: #dcebe4;
-    --max: 760px;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sherry Kisilu · Platform, Reliability &amp; Applied AI Engineer</title>
+  <meta name="description" content="Sherry Kisilu builds reliable cloud platforms, distributed workflows, applied AI systems, APIs and developer tooling from Nairobi.">
+  <meta name="theme-color" content="#081426">
+  <link rel="canonical" href="https://sherrykisilu.github.io/">
+  <meta property="og:title" content="Sherry Kisilu · Senior Software Engineering Portfolio">
+  <meta property="og:description" content="Platform engineering, cloud reliability, applied AI and distributed workflows—built with ownership and measurable impact.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sherrykisilu.github.io/">
+  <meta property="og:site_name" content="Sherry Kisilu">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sherry Kisilu · Platform, Reliability &amp; Applied AI Engineer">
+  <meta name="twitter:description" content="Engineering reliable platforms, distributed workflows and applied AI systems.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23081426'/><path d='M14 45V19h8v10l9-10h10L30 31l12 14H32L22 33v12z' fill='%23c8ff4d'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sherry Kisilu",
+    "url": "https://sherrykisilu.github.io/",
+    "sameAs": ["https://github.com/sherrykisilu"],
+    "jobTitle": "Software Engineer",
+    "worksFor": {"@type": "Organization", "name": "Microsoft"},
+    "knowsAbout": ["Platform engineering", "Cloud reliability", "Applied AI", "Distributed systems", "APIs", "Developer tooling"]
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #14130f;
-      --surface: #1c1a15;
-      --ink: #efe8da;
-      --muted: #a79f8f;
-      --line: #2f2c24;
-      --accent: #6cc5ab;
-      --accent-soft: #1d3530;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font: 400 17px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { text-decoration-thickness: 2px; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-
-  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
-  nav .mark { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 19px; color: var(--ink); text-decoration: none; }
-  nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; font-size: 15px; }
-  nav ul a { color: var(--muted); text-decoration: none; }
-  nav ul a:hover { color: var(--ink); }
-  @media (max-width: 560px) { nav ul li.opt { display: none; } }
-
-  header.hero { padding: 88px 0 56px; }
-  .eyebrow { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 16px; }
-  h1 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: clamp(40px, 8vw, 64px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 24px; }
-  .lede { font-size: 20px; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
-  .lede strong { color: var(--ink); font-weight: 500; }
-  .links { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; }
-  .btn:hover { border-color: var(--accent); }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-  .btn svg { width: 18px; height: 18px; fill: currentColor; }
-
-  section { padding: 56px 0; border-top: 1px solid var(--line); }
-  h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 30px; letter-spacing: -.01em; margin: 0 0 28px; }
-  h3 { font-size: 17px; font-weight: 600; margin: 0; }
-
-  .now { display: grid; gap: 14px; }
-  .now div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
-  .now .tag { font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
-  .now p { margin: 4px 0 0; }
-
-  .job { display: grid; grid-template-columns: 170px 1fr; gap: 6px 24px; padding: 0 0 30px; }
-  .job:last-child { padding-bottom: 0; }
-  .job .when { color: var(--muted); font-size: 15px; padding-top: 1px; }
-  .job .org { color: var(--muted); font-size: 15px; margin: 2px 0 8px; }
-  .job ul { margin: 0; padding-left: 18px; }
-  .job li { margin: 0 0 6px; }
-  @media (max-width: 600px) { .job { grid-template-columns: 1fr; } }
-
-  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  @media (max-width: 640px) { .projects { grid-template-columns: 1fr; } }
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; }
-  .card p { margin: 8px 0 14px; color: var(--muted); font-size: 16px; flex: 1; }
-  .card .meta { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
-  .card .more { margin-top: 14px; font-size: 15px; font-weight: 500; }
-  .card .note { margin-top: 14px; font-size: 14px; color: var(--muted); }
-
-  .edu { display: grid; gap: 20px; }
-  .edu .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .edu .row span { color: var(--muted); font-size: 15px; }
-  .edu p { margin: 4px 0 0; color: var(--muted); }
-
-  .skills { display: grid; grid-template-columns: 150px 1fr; gap: 10px 24px; margin: 0; }
-  .skills dt { font-weight: 600; }
-  .skills dd { margin: 0; color: var(--muted); }
-  @media (max-width: 560px) { .skills { grid-template-columns: 1fr; gap: 2px; } .skills dd { margin-bottom: 10px; } }
-
-  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
-</style>
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<nav>
-  <div class="wrap">
-    <a class="mark" href="#top">Sherry Kisilu</a>
-    <ul>
-      <li class="opt"><a href="#work">Work</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="blog/">Writing</a></li>
-      <li class="opt"><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main id="top" class="wrap">
-  <header class="hero">
-    <p class="eyebrow">Software engineer · Nairobi</p>
-    <h1>Data, cloud and AI systems that hold&nbsp;up.</h1>
-    <p class="lede">I'm a software engineer on <strong>Microsoft's Windows Reliability Data Engineering</strong> team, building data pipeline, migration and reliability tooling on Azure. Before that I built RAG systems and AI features for document management.</p>
-    <div class="links">
-      <a class="btn primary" href="https://github.com/sherrykisilu">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        GitHub
-      </a>
-      <!-- LINKEDIN -->
-    </div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Sherry Kisilu, home">
+      <span class="brand-mark" aria-hidden="true">SK</span>
+      <span>Sherry Kisilu</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#impact">Impact</a>
+      <a href="#work">Experience</a>
+      <a href="#projects">Systems</a>
+      <a href="blog/">Writing</a>
+      <a class="nav-cta" href="#contact">Connect</a>
+    </nav>
   </header>
 
-  <section aria-labelledby="now-h">
-    <h2 id="now-h">Now</h2>
-    <div class="now">
-      <div>
-        <span class="tag">At Microsoft</span>
-        <p>Validating Lens-to-Azure Data Factory migrations at scale, building AI-assisted tooling in C#, and moving infrastructure to code with ARM/Bicep and Azure DevOps.</p>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="signal"><span></span> Software engineer · Nairobi, Kenya</p>
+        <h1 id="hero-title">I build systems that make <em>complex work</em> reliable.</h1>
+        <p class="hero-lede">Platform engineering, cloud reliability and applied AI—designed around clear ownership, operational evidence and the people who depend on the system.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore the systems <span aria-hidden="true">↘</span></a>
+          <a class="button button-ghost" href="https://github.com/sherrykisilu">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-      <div>
-        <span class="tag">On the side</span>
-        <p>Building a startup for getting around within cities.</p>
+      <aside class="status-panel" aria-label="Current engineering focus">
+        <div class="panel-head">
+          <span>Current focus</span>
+          <span class="live"><i></i> Building</span>
+        </div>
+        <ol class="focus-list">
+          <li><span>01</span><strong>Platform ownership</strong><small>From architecture to release and operation</small></li>
+          <li><span>02</span><strong>Reliability evidence</strong><small>Telemetry and validation that support decisions</small></li>
+          <li><span>03</span><strong>Applied AI</strong><small>Grounded, evaluated and human-governed</small></li>
+        </ol>
+        <div class="panel-foot"><span>Primary stack</span><strong>C#/.NET · React · Azure</strong></div>
+      </aside>
+    </section>
+
+    <section class="impact-band" id="impact" aria-labelledby="impact-title">
+      <div class="section-label">
+        <span>01 / Impact</span>
+        <h2 id="impact-title">Engineering outcomes, not feature volume.</h2>
       </div>
-    </div>
-  </section>
-
-  <section id="work" aria-labelledby="work-h">
-    <h2 id="work-h">Work</h2>
-
-    <div class="job">
-      <div class="when">Jun 2026 – now</div>
-      <div>
-        <h3>Software Engineer, Windows Reliability Data Engineering</h3>
-        <div class="org">Microsoft ADC, Nairobi</div>
-        <ul>
-          <li>Validate Lens-to-Azure Data Factory migrations at scale, running original and migrated pipelines side by side to confirm identical outputs.</li>
-          <li>Build AI-assisted C# tooling for workflow discovery, pipeline generation and validation.</li>
-          <li>Replace manual deployments with infrastructure as code (ARM/Bicep, Azure DevOps) so changes are traceable, repeatable and reversible.</li>
-          <li>Help operate an autoscaling containerised analysis service: updates, maintenance and recovery.</li>
-        </ul>
+      <div class="metrics">
+        <article><strong>~80%</strong><p>less debugging effort after the first Azure Data Factory dependency visualization</p></article>
+        <article><strong>4 / 4</strong><p>engineers hired, onboarded and managed at Techedge—all retained</p></article>
+        <article><strong>214</strong><p>tests across Python 3.11–3.13 for the Groundwork agent-engineering system</p></article>
+        <article><strong>82.3%</strong><p>best evaluated configuration for Swahili and Sheng sentiment analysis</p></article>
       </div>
-    </div>
+    </section>
 
-    <div class="job">
-      <div class="when">Jul – Sep 2025</div>
-      <div>
-        <h3>Intern, Windows Reliability Data Engineering</h3>
-        <div class="org">Microsoft ADC, Nairobi</div>
-        <ul>
-          <li>Built a tool that turns Azure Data Factory pipelines into interactive dependency graphs. The team adopted it and integrated it into internal monitoring tooling, and it led to a full-time offer.</li>
-          <li>Analysed Windows reliability telemetry from devices worldwide with Kusto.</li>
-        </ul>
+    <section class="experience section-shell" id="work" aria-labelledby="work-title">
+      <div class="section-intro">
+        <p class="kicker">02 / Ownership</p>
+        <h2 id="work-title">From ambiguous problem to operated platform.</h2>
+        <p>I work across architecture, implementation, delivery and production feedback loops—connecting engineering decisions to customer and team outcomes.</p>
       </div>
-    </div>
 
-    <div class="job">
-      <div class="when">Mar 2024 – Jun 2025</div>
-      <div>
-        <h3>AI-Focused Junior Software Developer <span style="font-weight:400;color:var(--muted)">(from Oct 2024; intern before)</span></h3>
-        <div class="org">Techedge Solutions, Nairobi</div>
-        <ul>
-          <li>Built AI features for document management systems, including natural-language search and automation.</li>
-          <li>Delivered RAG systems and AI integrations for clients, with multi-model fallback so another model takes over if one fails.</li>
-          <li>Built web interfaces for document management with React and Tailwind CSS.</li>
-        </ul>
+      <div class="timeline">
+        <article class="role">
+          <div class="role-meta">
+            <span class="company">Microsoft</span>
+            <time>Jun 2026 — Present</time>
+            <span>Nairobi</span>
+          </div>
+          <div class="role-body">
+            <p class="role-index">01</p>
+            <h3>Software Engineer · Windows Reliability Data Engineering</h3>
+            <p class="role-summary">Owns an internal Azure Data Factory dependency platform spanning product architecture, cloud delivery, monitoring and release.</p>
+            <ul>
+              <li>Builds the C#/.NET and React platform engineers use daily to understand pipeline dependencies; the first visualization reduced debugging effort by approximately 80%.</li>
+              <li>Produces migration-validation evidence by comparing original and migrated workflows, giving engineers concrete inputs for cutover decisions.</li>
+              <li>Investigates worldwide Windows reliability signals through Kusto queries, logs and telemetry, turning operational data into actionable findings.</li>
+              <li>Operates an autoscaling, containerized analysis service and delivers Azure infrastructure through ARM/Bicep and Azure DevOps.</li>
+            </ul>
+            <div class="stack"><span>C# / .NET</span><span>React</span><span>Azure Data Factory</span><span>Kusto</span><span>ARM / Bicep</span></div>
+          </div>
+        </article>
+
+        <article class="role">
+          <div class="role-meta">
+            <span class="company">Microsoft</span>
+            <time>Jul — Sep 2025</time>
+            <span>Nairobi</span>
+          </div>
+          <div class="role-body">
+            <p class="role-index">02</p>
+            <h3>Software Engineering Intern · Windows Reliability Data Engineering</h3>
+            <p class="role-summary">Turned a pipeline-discovery problem into a dependency visualization adopted by the team and integrated into internal monitoring tooling.</p>
+            <ul>
+              <li>Designed deterministic pipeline parsing with AI-assisted refinement and an interactive view that made complex dependencies easier to diagnose.</li>
+              <li>Analyzed Windows reliability telemetry from devices worldwide using Kusto, logs and operational signals.</li>
+            </ul>
+            <div class="stack"><span>Azure</span><span>Data workflows</span><span>Developer tooling</span><span>Telemetry</span></div>
+          </div>
+        </article>
+
+        <article class="role">
+          <div class="role-meta">
+            <span class="company">Techedge Solutions</span>
+            <time>Mar 2024 — Jun 2025</time>
+            <span>Nairobi</span>
+          </div>
+          <div class="role-body">
+            <p class="role-index">03</p>
+            <h3>AI-Focused Software Developer</h3>
+            <p class="role-summary">Delivered enterprise search and workflow automation directly with customers and stakeholders, then supported those systems in production.</p>
+            <ul>
+              <li>Built React and C#/.NET experiences backed by SQL for document workflows, natural-language search and operational automation.</li>
+              <li>Delivered production RAG capabilities with multi-model fallback to reduce dependence on a single model provider.</li>
+              <li>Owned stakeholder communication and production support while hiring, onboarding and managing four engineers; all four were retained.</li>
+            </ul>
+            <div class="stack"><span>React</span><span>C# / .NET</span><span>SQL</span><span>RAG</span><span>Customer delivery</span></div>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" aria-labelledby="projects-h">
-    <h2 id="projects-h">Projects</h2>
-    <div class="projects">
+    <section class="systems" id="projects" aria-labelledby="projects-title">
+      <div class="section-shell">
+        <div class="section-intro light">
+          <p class="kicker">03 / Selected systems</p>
+          <h2 id="projects-title">Architecture with the failure modes left in.</h2>
+          <p>These projects make lifecycle, validation, observability and human control first-class—not cleanup work after the demo.</p>
+        </div>
 
-      <article class="card">
-        <h3>Charmed PostgreSQL HA lab</h3>
-        <p>A three-unit PostgreSQL 16 cluster deployed with Juju on MicroK8s, with credentials issued through an integration. I deleted the primary's pod and confirmed failover with no data loss.</p>
-        <div class="meta"><span class="chip">Kubernetes</span><span class="chip">Juju</span><span class="chip">PostgreSQL</span><span class="chip">Bash</span></div>
-        <a class="more" href="https://github.com/sherrykisilu/charmed-postgresql-lab">View on GitHub →</a>
-      </article>
+        <div class="project-grid">
+          <article class="project-card feature">
+            <div class="project-top"><span class="project-no">01</span><span class="project-kind">Distributed workflows</span></div>
+            <h3>GTM Agent Workflows</h3>
+            <p>A durable workflow system for agent-assisted go-to-market operations. Explicit asynchronous lifecycles, retry and idempotency semantics, persisted human approval, grounded retrieval and structured policy outputs.</p>
+            <div class="architecture" aria-label="Architecture flow"><span>FastAPI</span><i>→</i><span>Workflow engine</span><i>→</i><span>SQLite audit events</span><i>→</i><span>React console</span></div>
+            <ul class="proof"><li>Bearer auth and HMAC verification</li><li>Replay adapters, CI and evaluations</li><li>n8n workflow artifact</li></ul>
+            <a class="project-link" href="https://github.com/sherrykisilu/gtm-agent-workflows" aria-label="View GTM Agent Workflows on GitHub">Inspect repository <span>↗</span></a>
+          </article>
 
-      <article class="card">
-        <h3>Intelisenti</h3>
-        <p>Sentiment analysis for Swahili and Sheng, including slang and code-switching. I built a 786-example dataset and a hybrid TF-IDF/logistic regression + DistilBERT classifier that reached 82.3% accuracy, served through a Flask API and React dashboard. Final-year project, graded A.</p>
-        <div class="meta"><span class="chip">NLP</span><span class="chip">PyTorch</span><span class="chip">Flask</span><span class="chip">React</span></div>
-      </article>
+          <article class="project-card">
+            <div class="project-top"><span class="project-no">02</span><span class="project-kind">Agent engineering</span></div>
+            <h3>Groundwork</h3>
+            <p>An evaluation-first foundation for agent systems: MCP servers, versioned skills, behavioral evaluation, citation grounding and offline replay.</p>
+            <div class="architecture compact"><span>MCP</span><i>→</i><span>Skills</span><i>→</i><span>Evals</span><i>→</i><span>Replay</span></div>
+            <p class="evidence"><strong>214 tests</strong> · Python 3.11–3.13</p>
+            <a class="project-link" href="https://github.com/sherrykisilu/groundwork" aria-label="View Groundwork on GitHub">Inspect repository <span>↗</span></a>
+          </article>
 
-      <article class="card">
-        <h3>Data Factory workflow visualiser</h3>
-        <p>Maps Azure Data Factory pipelines into interactive dependency graphs: deterministic parsing first, then AI refinement. My team at Microsoft adopted it.</p>
-        <div class="meta"><span class="chip">C#</span><span class="chip">Azure Data Factory</span><span class="chip">AI</span></div>
-        <span class="note">Internal to Microsoft</span>
-      </article>
+          <article class="project-card">
+            <div class="project-top"><span class="project-no">03</span><span class="project-kind">AI operations</span></div>
+            <h3>AI Casework Review</h3>
+            <p>An asynchronous case-review platform with versioned processing, deterministic fallback and operational telemetry for tokens, latency and correlation IDs.</p>
+            <div class="architecture compact"><span>React 19</span><i>→</i><span>Django / DRF</span><i>→</i><span>Celery</span><i>→</i><span>PostgreSQL</span></div>
+            <p class="evidence">Strict TypeScript · Redis · evaluation</p>
+            <a class="project-link" href="https://github.com/sherrykisilu/ai-casework-review" aria-label="View AI Casework Review on GitHub">Inspect repository <span>↗</span></a>
+          </article>
 
-      <article class="card">
-        <h3>Privacy SDK</h3>
-        <p>A Python SDK, built at a hackathon for an NGO, that redacts disability-identifying data from AI prompts. We reworked its modes after user testing.</p>
-        <div class="meta"><span class="chip">Python</span><span class="chip">Privacy</span><span class="chip">LLMs</span></div>
-      </article>
+          <article class="project-card">
+            <div class="project-top"><span class="project-no">04</span><span class="project-kind">Platform interoperability</span></div>
+            <h3>Platform Bridge</h3>
+            <p>A versioned lifecycle-event contract and ingestion core with Java/Spring and Node/TypeScript adapters, an operator console, semantic validation and idempotent processing.</p>
+            <div class="architecture compact"><span>JSON Schema</span><i>→</i><span>.NET 8</span><i>→</i><span>Adapters</span><i>→</i><span>React</span></div>
+            <p class="evidence">Compatibility tests · SQL Server · statically validated Bicep</p>
+            <a class="project-link" href="https://github.com/sherrykisilu/platform-bridge" aria-label="View Platform Bridge on GitHub">Inspect repository <span>↗</span></a>
+          </article>
 
-      <article class="card">
-        <h3>Document intelligence platform</h3>
-        <p>OCR, metadata extraction and prompt-based querying over documents, through a Flask API.</p>
-        <div class="meta"><span class="chip">Python</span><span class="chip">OCR</span><span class="chip">Flask</span></div>
-      </article>
+          <article class="project-card">
+            <div class="project-top"><span class="project-no">05</span><span class="project-kind">African-language NLP</span></div>
+            <h3>Intelisenti</h3>
+            <p>Sentiment analysis for Swahili and Sheng, including slang and code-switching, evaluated across classical, fine-tuned and zero-shot approaches.</p>
+            <div class="architecture compact"><span>786 labels</span><i>→</i><span>TF-IDF / Transformers</span><i>→</i><span>Flask</span><i>→</i><span>React</span></div>
+            <p class="evidence"><strong>82.3%</strong> best evaluated configuration · AfriBERTa · DistilBERT · Mixtral-8x7B</p>
+            <a class="project-link" href="https://github.com/sherrykisilu/intelisenti" aria-label="View Intelisenti on GitHub">Inspect repository <span>↗</span></a>
+          </article>
 
-      <article class="card">
-        <h3>RAG chatbot</h3>
-        <p>Retrieves the right documents for natural-language questions, with Redis for labelling data.</p>
-        <div class="meta"><span class="chip">RAG</span><span class="chip">Redis</span><span class="chip">Python</span></div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="writing" aria-labelledby="writing-h">
-    <h2 id="writing-h">Writing</h2>
-    <div class="now">
-      <div>
-        <span class="tag">13 October 2026</span>
-        <p><a href="blog/killing-a-postgresql-primary/"><strong>Killing a PostgreSQL primary on purpose</strong></a>: I deleted the primary of a three-unit cluster and watched what the operator did, including the measurement I couldn't make yet.</p>
+          <article class="project-card development">
+            <div class="project-top"><span class="project-no">06</span><span class="project-kind">In development</span></div>
+            <h3>Inference Control Plane Lab</h3>
+            <p>An emerging exploration of control-plane concerns for AI inference systems. The repository currently documents the direction; implementation is in development.</p>
+            <div class="architecture compact"><span>Control plane</span><i>→</i><span>Inference lifecycle</span></div>
+            <a class="project-link" href="https://github.com/sherrykisilu/inference-control-plane-lab" aria-label="View Inference Control Plane Lab on GitHub">Follow development <span>↗</span></a>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="education" aria-labelledby="edu-h">
-    <h2 id="edu-h">Education</h2>
-    <div class="edu">
-      <div>
-        <div class="row"><h3>BSc Computer Science, University of Nairobi</h3><span>2022 – 2026</span></div>
-        <p>Second Class Honours (Upper Division). Final-year and second-year projects graded A. Distributed systems, distributed databases, operating systems, networks, algorithms.</p>
+    <section class="principles section-shell" aria-labelledby="principles-title">
+      <div class="section-intro">
+        <p class="kicker">04 / Operating principles</p>
+        <h2 id="principles-title">The system is more than the happy path.</h2>
       </div>
-      <div>
-        <div class="row"><h3>Software Engineering, Moringa School</h3><span>2022 – 2023</span></div>
-        <p>Full-stack programme: JavaScript, React, Ruby on Rails, Python, Django, APIs.</p>
+      <div class="principle-grid">
+        <article><span>01</span><h3>Evidence before confidence</h3><p>Use evaluation, telemetry and migration comparisons to make claims and decisions inspectable.</p></article>
+        <article><span>02</span><h3>Design for recovery</h3><p>Make lifecycle, replay, idempotency and fallback behavior explicit before production makes them urgent.</p></article>
+        <article><span>03</span><h3>Own the delivery loop</h3><p>Stay connected from stakeholder problem through architecture, release, operation and support.</p></article>
+        <article><span>04</span><h3>Build teams, not dependencies</h3><p>Document decisions, create useful tooling and onboard engineers into real ownership.</p></article>
       </div>
-      <div>
-        <div class="row"><h3>KCSE, Alliance Girls' High School</h3><span>2022</span></div>
-        <p>Mean grade A (83/84). Top 100 of 826,807 candidates nationally.</p>
+    </section>
+
+    <section class="writing section-shell" aria-labelledby="writing-title">
+      <div class="section-intro">
+        <p class="kicker">05 / Field notes</p>
+        <h2 id="writing-title">Writing from the failure path.</h2>
       </div>
-    </div>
-  </section>
+      <a class="article-row" href="blog/killing-a-postgresql-primary/">
+        <div><time datetime="2026-10-13">13 Oct 2026</time><span>Databases · Kubernetes</span></div>
+        <h3>Killing a PostgreSQL primary on purpose</h3>
+        <p>I deleted the primary of a three-unit cluster and watched what the operator did—including the measurement I could not honestly make yet.</p>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </section>
 
-  <section aria-labelledby="skills-h">
-    <h2 id="skills-h">Toolkit</h2>
-    <dl class="skills">
-      <dt>Languages</dt><dd>Python, C#, JavaScript, SQL, Ruby, Bash</dd>
-      <dt>Data</dt><dd>Azure Data Factory, Kusto, PostgreSQL, MySQL, SQLite, Redis</dd>
-      <dt>Cloud &amp; infra</dt><dd>Azure (Logic Apps, Function Apps, DevOps), ARM/Bicep, Kubernetes (MicroK8s), Juju, cloud-init, Git</dd>
-      <dt>AI / ML</dt><dd>RAG, NLP, scikit-learn, PyTorch, Hugging Face</dd>
-      <dt>Frameworks</dt><dd>.NET, EF Core, Flask, Django, React, Rails</dd>
-    </dl>
-  </section>
+    <section class="toolkit" aria-labelledby="toolkit-title">
+      <div class="section-shell toolkit-grid">
+        <div><p class="kicker">06 / Toolkit</p><h2 id="toolkit-title">Broad enough to own the boundary.</h2></div>
+        <dl>
+          <div><dt>Platform &amp; cloud</dt><dd>Azure · Azure Data Factory · Azure DevOps · ARM/Bicep · Containers · Kubernetes · CI/CD</dd></div>
+          <div><dt>Application</dt><dd>C#/.NET · Python · TypeScript · React · Django/DRF · FastAPI · Java/Spring · SQL</dd></div>
+          <div><dt>Data &amp; reliability</dt><dd>Kusto · PostgreSQL · SQL Server · SQLite · Redis · telemetry · migration validation</dd></div>
+          <div><dt>Applied AI</dt><dd>RAG · grounded retrieval · structured outputs · evaluation · NLP · human approval workflows</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <section id="contact" aria-labelledby="contact-h">
-    <h2 id="contact-h">Contact</h2>
-    <p class="lede" style="font-size:18px">I'm happy to talk about data engineering, reliability, AI in African languages, or getting around Nairobi.</p>
-    <div class="links">
-      <!-- LINKEDIN-CONTACT -->
-      <a class="btn" href="https://github.com/sherrykisilu">GitHub</a>
-    </div>
-  </section>
-</main>
+    <section class="education section-shell" aria-labelledby="education-title">
+      <p class="kicker">07 / Foundation</p>
+      <h2 id="education-title">Education</h2>
+      <div class="education-list">
+        <p><strong>BSc Computer Science</strong><span>University of Nairobi · 2022–2026</span></p>
+        <p><strong>Software Engineering</strong><span>Moringa School · 2022–2023</span></p>
+      </div>
+    </section>
 
-<footer>
-  <div class="wrap">© 2026 Sherry Kisilu · Nairobi, Kenya</div>
-</footer>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-copy">
+        <p class="kicker">08 / Connect</p>
+        <h2 id="contact-title">Let’s talk about the system behind the feature.</h2>
+        <p>Interested in platform engineering, cloud reliability, applied AI, distributed workflows or developer tooling? GitHub is the best place to start.</p>
+      </div>
+      <a class="button button-primary button-large" href="https://github.com/sherrykisilu">Connect on GitHub <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
 
+  <footer>
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">SK</span><span>Sherry Kisilu</span></a>
+    <p>Platform engineering · Reliability · Applied AI</p>
+    <p>© 2026 · Nairobi, Kenya</p>
+  </footer>
 </body>
 </html>

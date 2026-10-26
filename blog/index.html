@@ -1,29 +1,35 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Writing · Sherry Kisilu</title>
-<meta name="description" content="Notes from building and breaking data systems.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f5c4d'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23f6f1e7'>SK</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="post.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Field Notes · Sherry Kisilu</title>
+  <meta name="description" content="Field notes from Sherry Kisilu on reliability, distributed systems, databases and engineering the failure path.">
+  <meta name="theme-color" content="#081426">
+  <link rel="canonical" href="https://sherrykisilu.github.io/blog/">
+  <meta property="og:title" content="Engineering Field Notes · Sherry Kisilu">
+  <meta property="og:description" content="Notes from building, operating and deliberately breaking systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sherrykisilu.github.io/blog/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23081426'/><path d='M14 45V19h8v10l9-10h10L30 31l12 14H32L22 33v12z' fill='%23c8ff4d'/></svg>">
+  <link rel="stylesheet" href="post.css">
 </head>
 <body>
-<nav><div class="wrap"><a class="mark" href="/">Sherry Kisilu</a><ul><li><a href="/blog/">Writing</a></li><li><a href="/#projects">Projects</a></li></ul></div></nav>
-<main class="wrap listing">
-  <header>
-    <p class="eyebrow">Writing</p>
-    <h1>Notes from building and breaking data systems</h1>
-  </header>
-  <a class="post" href="killing-a-postgresql-primary/">
-    <span class="date">13 October 2026</span>
-    <h2>Killing a PostgreSQL primary on purpose</h2>
-    <p>I deleted the primary of a three-unit cluster and watched what the operator did: failover, split-brain avoidance, and the measurement I couldn't make yet.</p>
-  </a>
-</main>
-<footer><div class="wrap">© 2026 Sherry Kisilu · Nairobi, Kenya</div></footer>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav aria-label="Primary navigation"><div class="wrap"><a class="mark" href="/">Sherry Kisilu</a><ul><li><a href="/#projects">Systems</a></li><li><a href="/#contact">Connect</a></li></ul></div></nav>
+  <main id="main" class="wrap listing">
+    <header>
+      <p class="eyebrow">05 / Engineering field notes</p>
+      <h1>Notes from the failure path.</h1>
+      <p class="lede">Experiments and observations from building, operating and deliberately breaking systems.</p>
+    </header>
+    <a class="post" href="killing-a-postgresql-primary/">
+      <span class="date">13 October 2026</span>
+      <h2>Killing a PostgreSQL primary on purpose</h2>
+      <p>I deleted the primary of a three-unit cluster and watched what the operator did: failover, split-brain avoidance, and the measurement I couldn't make yet.</p>
+    </a>
+  </main>
+  <footer><div class="wrap">© 2026 Sherry Kisilu · Nairobi, Kenya</div></footer>
 </body>
 </html>
